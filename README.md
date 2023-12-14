@@ -1,23 +1,27 @@
-
 # Data Persistence Repository SQL
 
 [![PyPI](https://img.shields.io/pypi/v/data_persistence_repository)](https://pypi.org/project/data-persistence-repository-sql/)
 [![Build Status](https://github.com/smileservices/data_persistence_repository/actions/workflows/sql_postgres.yml/badge.svg)](https://github.com/smileservices/data_persistence_repository/actions)
 [![Coverage Status](https://coveralls.io/repos/github/smileservices/data_persistence_repository/badge.svg?branch=main)](https://coveralls.io/github/smileservices/data_persistence_repository?branch=main)
 
-**Data Persistence Repository SQL** is a Python package providing a portable SQL repository implementation, following the repository pattern for a data persistence layer. This package facilitates interaction with SQL databases through an abstracted interface, ensuring clean and maintainable database interaction in Python applications.
+**Data Persistence Repository** is a Python package providing a portable implementation of the repository pattern for a
+data persistence layer. For the moment there is only SQL support but it is planned to introduce more database types.
+This package facilitates interaction with SQL databases through an abstracted interface, ensuring clean and maintainable
+database interaction in Python applications.
+
+[![Diagram](https://github.com/smileservices/data_persistence_repository/blob/main/diagram.pdf)]
 
 ## Features
 
 - Abstract repository interface for streamlined data layer interactions.
-- SQL repository implementation leveraging SQLAlchemy.
+- SQL repository implementation with SQLAlchemy.
 - Context manager for robust database session management.
-- Comprehensive methods for CRUD operations (Create, Read, Update, Delete).
+- Methods for CRUD operations (Create, Read, Update, Delete).
 - Support for filtering and bulk operations.
 
 ## Installation
 
-Install **Data Persistence Repository SQL** from PyPI:
+Install **Data Persistence Repository** from PyPI:
 
 ```bash
 pip install data_persistence_repository
@@ -30,12 +34,18 @@ Basic usage example:
 ```python
 from data_persistence_repository.sql_repository import SqlRepository
 
+class YourOwnRepository(SqlRepository):
+    
+    def special_query(self, session):
+        # execute a special query
+
 # Initialize the repository
-repo = SqlRepository("sqlite:///your_database.db")
+repo = YourOwnRepository("sqlite:///your_database.db")
 
 # Use the repository within a managed context
 with repo.start_session() as session:
     # Perform add, get, delete operations here
+    repo.special_query(session)
 ```
 
 Replace `"sqlite:///your_database.db"` with your actual database URL.
@@ -50,12 +60,13 @@ Replace `"sqlite:///your_database.db"` with your actual database URL.
 Execute tests using pytest:
 
 ```bash
-pytest
+python -m pytest tests
 ```
 
 ## Contributing
 
-Contributions are welcomed! For substantial changes, please open an issue first to discuss what you'd like to change. Please make sure to update tests accordingly.
+Contributions are welcomed! For substantial changes, please open an issue first to discuss what you'd like to change.
+Please make sure to update tests accordingly. Also, each PR must have tests.
 
 ## License
 
@@ -63,4 +74,5 @@ Contributions are welcomed! For substantial changes, please open an issue first 
 
 ---
 
-For more information on the repository pattern and its benefits in data persistence, please visit [Repository Pattern Information](https://example.com/repository-pattern-info).
+For more information on the repository pattern and its benefits in data persistence, please
+visit [Repository Design Pattern Information](https://www.geeksforgeeks.org/repository-design-pattern/).

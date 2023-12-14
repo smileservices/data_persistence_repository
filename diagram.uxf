@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>684</x>
+      <y>252</y>
+      <w>225</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Repository (interface)
+--
+get()
+filter()
+add()
+add_bulk()
+delete()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>684</x>
+      <y>405</y>
+      <w>225</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>SQLRepository
+--
+start_session()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>351</y>
+      <w>99</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+implements</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>657</x>
+      <y>207</y>
+      <w>297</w>
+      <h>342</h>
+    </coordinates>
+    <panel_attributes>Data Persistence Repository</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>189</x>
+      <y>207</y>
+      <w>297</w>
+      <h>486</h>
+    </coordinates>
+    <panel_attributes>Your Project</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>225</x>
+      <y>261</y>
+      <w>225</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>YourOwnRepository
+--
+special_query()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>441</x>
+      <y>297</y>
+      <w>261</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes>
+    <additional_attributes>270.0;180.0;140.0;180.0;140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>225</x>
+      <y>594</y>
+      <w>234</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>main.py
+--
+invoke repository
+methods
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>360</y>
+      <w>99</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+instantiates</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;280.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>729</x>
+      <y>576</y>
+      <w>153</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>SQL Database
+group=1
+bg=gray
+fg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>729</x>
+      <y>621</y>
+      <w>153</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>
+layer=-1
+group=1
+bg=gray
+fg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>729</x>
+      <y>657</y>
+      <w>153</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>
+layer=-1
+group=1
+bg=gray
+fg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>612</y>
+      <w>279</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+uses</panel_attributes>
+    <additional_attributes>290.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+</diagram>
