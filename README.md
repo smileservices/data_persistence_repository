@@ -2,7 +2,7 @@
 # Data Persistence Repository SQL
 
 [![PyPI](https://img.shields.io/pypi/v/data_persistence_repository)](https://pypi.org/project/data-persistence-repository-sql/)
-[![Build Status](https://github.com/smileservices/data_persistence_repository/workflows/Tests/badge.svg)](https://github.com/smileservices/data_persistence_repository/actions)
+[![Build Status](https://github.com/smileservices/data_persistence_repository/actions/workflows/sql_postgres.yml/badge.svg)](https://github.com/smileservices/data_persistence_repository/actions)
 [![Coverage Status](https://coveralls.io/repos/github/yourusername/data_persistence_repository/badge.svg)](https://coveralls.io/github/smileservices/data_persistence_repository)
 
 **Data Persistence Repository SQL** is a Python package providing a portable SQL repository implementation, following the repository pattern for a data persistence layer. This package facilitates interaction with SQL databases through an abstracted interface, ensuring clean and maintainable database interaction in Python applications.
