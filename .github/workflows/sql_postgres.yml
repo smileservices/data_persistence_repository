@@ -1,5 +1,5 @@
 
-name: Python package tests
+name: SQL Repository
 
 on:
   push:
