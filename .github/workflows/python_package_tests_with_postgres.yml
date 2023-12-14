@@ -25,8 +25,8 @@ jobs:
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
+          --health-interval 7s
+          --health-timeout 3s
           --health-retries 5
 
     steps:
@@ -38,5 +38,5 @@ jobs:
 
     - name: Run tests
       env:
-        POSTGRES_URL: postgres://postgres:postgres@localhost:5432/test_db
+        POSTGRES_URL: "postgresql://postgres:postgres@localhost:5432/test_db"
       run: python -m pytest
