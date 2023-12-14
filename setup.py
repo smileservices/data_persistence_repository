@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="data_persistence_repository",
-    version="0.1.0",
+    version="0.1.1",
     author="vladimir gorea",
     author_email="vladimir@smileservices.dev",
     description="A repository implementation for data persistence.",
@@ -15,7 +15,7 @@ setup(
         "greenlet==3.0.2",
         "iniconfig==2.0.0",
         "packaging==23.2",
-        "pluggy==1.3.0",
+        "pluggy",
         "psycopg2==2.9.9",
         "pytest==7.4.3",
         "SQLAlchemy==2.0.23",
