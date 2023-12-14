@@ -9,7 +9,7 @@ data persistence layer. For the moment there is only SQL support but it is plann
 This package facilitates interaction with SQL databases through an abstracted interface, ensuring clean and maintainable
 database interaction in Python applications.
 
-[![Diagram](https://github.com/smileservices/data_persistence_repository/blob/main/diagram.pdf)]
+[![Diagram](https://github.com/smileservices/data_persistence_repository/blob/main/diagram.png)]
 
 ## Features
 
