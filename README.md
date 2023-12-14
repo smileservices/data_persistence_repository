@@ -1,4 +1,4 @@
-# Data Persistence Repository SQL
+# Data Persistence Repository
 
 [![PyPI](https://img.shields.io/pypi/v/data_persistence_repository)](https://pypi.org/project/data-persistence-repository-sql/)
 [![Build Status](https://github.com/smileservices/data_persistence_repository/actions/workflows/sql_postgres.yml/badge.svg)](https://github.com/smileservices/data_persistence_repository/actions)
