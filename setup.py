@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="data_persistence_repository",
-    version="0.1.1",
+    version="0.2.0",
     author="vladimir gorea",
     author_email="vladimir@smileservices.dev",
     description="A repository implementation for data persistence.",
@@ -22,6 +22,8 @@ setup(
         "SQLAlchemy-Utils==0.41.1",
         "tomli==2.0.1",
         "typing_extensions==4.9.0",
+        "pytest-asyncio==0.23.2",
+        "asyncpg==0.29.0"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
