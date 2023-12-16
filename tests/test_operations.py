@@ -33,7 +33,7 @@ def test_repo():
     db_engine.dispose()
 
 
-def test_can_add(test_repo):
+def test_can_add(test_repo: SqlRepository):
     test_model_instance = fake.TestModel(
         name='test item'
     )
@@ -47,7 +47,7 @@ def test_can_add(test_repo):
     assert q[0][1] == 'test item'
 
 
-def test_can_map_relationship(test_repo):
+def test_can_map_relationship(test_repo: SqlRepository):
     test_model_instance = fake.TestModel(
         name='test item',
         joined=[fake.TestJoinedModel(), fake.TestJoinedModel()]
@@ -69,7 +69,7 @@ def test_can_map_relationship(test_repo):
         assert parent.joined == joined
 
 
-def test_can_add_bulk(test_repo):
+def test_can_add_bulk(test_repo: SqlRepository):
     test_model_instances = [
         fake.TestModel(name='test item 1'),
         fake.TestModel(name='test item 2'),
@@ -84,7 +84,7 @@ def test_can_add_bulk(test_repo):
     assert [i.name for i in q] == ['test item 1', 'test item 2', 'test item 3']
 
 
-def test_can_get(test_repo):
+def test_can_get(test_repo: SqlRepository):
     with orm.Session(db_engine) as s:
         q = s.execute(text(
             "INSERT INTO test_table(name) VALUES ('t1'), ('t2')"
@@ -96,7 +96,7 @@ def test_can_get(test_repo):
         assert result.name == 't2'
 
 
-def test_can_delete(test_repo):
+def test_can_delete(test_repo: SqlRepository):
     with orm.Session(db_engine) as s:
         q = s.execute(
             text("INSERT INTO test_table(name) VALUES ('t1'), ('t2')")
@@ -110,7 +110,7 @@ def test_can_delete(test_repo):
     assert q[0][1] == 't2'
 
 
-def test_can_filter(test_repo):
+def test_can_filter(test_repo: SqlRepository):
     with orm.Session(db_engine) as s:
         q = s.execute(
             text("INSERT INTO test_table(name) VALUES ('t1'), ('t2'), ('t3')")
@@ -122,7 +122,7 @@ def test_can_filter(test_repo):
         assert [i.name for i in result] == ['t2', 't3']
 
 
-def test_can_rollback(test_repo):
+def test_can_rollback(test_repo: SqlRepository):
     with orm.Session(db_engine) as s:
         s.execute(text("INSERT INTO test_table(name) VALUES ('t1')"))
         s.commit()
@@ -138,7 +138,7 @@ def test_can_rollback(test_repo):
         assert q[0][1] == 1
 
 
-def test_exists(test_repo):
+def test_exists(test_repo: SqlRepository):
     with orm.Session(db_engine) as s:
         q = s.execute(
             text("INSERT INTO test_table(name) VALUES ('t1'), ('t2'), ('t3')")
@@ -150,7 +150,7 @@ def test_exists(test_repo):
         assert not test_repo.exists(s, fake.TestModel, name='t100')
 
 
-def test_patch(test_repo):
+def test_patch(test_repo: SqlRepository):
     with orm.Session(db_engine) as s:
         q = s.execute(
             text("INSERT INTO test_table(id, name) VALUES (1, 't1'), (2, 't2'), (3, 't3')")

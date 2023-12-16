@@ -37,7 +37,8 @@ class TestJoinedModel:
 
 
 def run_mappers(registry):
+    # joined attributes have to be eager loaded in order to avoid async sqlalchemy issues
     registry.map_imperatively(TestModel, test_table, properties={
-        "joined": orm.relationship(TestJoinedModel, backref='parent')
+        "joined": orm.relationship(TestJoinedModel, backref='parent', lazy='selectin')
     })
     registry.map_imperatively(TestJoinedModel, test_joined_table)
