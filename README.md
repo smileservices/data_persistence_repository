@@ -14,7 +14,7 @@ database interaction in Python applications.
 ## Features
 
 - Abstract repository interface for streamlined data layer interactions.
-- SQL repository implementation with SQLAlchemy.
+- Async and sync SQL repository implementation with SQLAlchemy.
 - Context manager for robust database session management.
 - Methods for CRUD operations (Create, Read, Update, Delete).
 - Support for filtering and bulk operations.
@@ -29,16 +29,17 @@ pip install data_persistence_repository
 
 ## Usage
 
-Basic usage example:
+Basic usage example (synchron):
 
 ```python
+from sqlalchemy.orm import Session
 from data_persistence_repository.sql_repository import SqlRepository
 
 class YourOwnRepository(SqlRepository):
     
-    def special_query(self, session):
+    def special_query(self, session: Session):
         # execute a special query
-
+        
 # Initialize the repository
 repo = YourOwnRepository("sqlite:///your_database.db")
 
@@ -46,6 +47,27 @@ repo = YourOwnRepository("sqlite:///your_database.db")
 with repo.start_session() as session:
     # Perform add, get, delete operations here
     repo.special_query(session)
+```
+
+Basic usage example (asynchron):
+
+```python
+from sqlalchemy.ext.asyncio import AsyncSession
+from data_persistence_repository.sql_repository_async import AsyncSqlRepository
+
+class YourOwnRepository(AsyncSqlRepository):
+    
+    async def special_query(self, session: AsyncSession):
+        # execute a special query
+        await session.execute(...)
+
+# Initialize the repository
+repo = AsyncSqlRepository("sqlite:///your_database.db")
+
+# Use the repository within a managed context
+async with repo.start_session() as session:
+    # Perform add, get, delete operations here
+    await repo.special_query(session)
 ```
 
 Replace `"sqlite:///your_database.db"` with your actual database URL.
