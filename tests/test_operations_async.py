@@ -44,7 +44,6 @@ async def test_repo():
     # Create an engine for the in-memory database
     async_repo = AsyncSqlRepository(engine=async_db_engine)
 
-
     yield async_repo
 
     # Cleanup code after tests complete
@@ -97,6 +96,7 @@ async def test_can_map_relationship(test_repo):
         assert parent.joined == joined
 
 
+@pytest.mark.asyncio
 async def test_can_add_bulk(test_repo):
     test_model_instances = [
         fake.TestModel(name='test item 1'),
@@ -113,6 +113,7 @@ async def test_can_add_bulk(test_repo):
         assert [i.name for i in q] == ['test item 1', 'test item 2', 'test item 3']
 
 
+@pytest.mark.asyncio
 async def test_can_get(test_repo: AsyncSqlRepository):
     async with async_sess_factory() as s:
         await s.execute(text(
@@ -125,6 +126,7 @@ async def test_can_get(test_repo: AsyncSqlRepository):
         assert result.name == 't2'
 
 
+@pytest.mark.asyncio
 async def test_can_delete(test_repo: AsyncSqlRepository):
     async with async_sess_factory() as s:
         q = await s.execute(
@@ -140,6 +142,7 @@ async def test_can_delete(test_repo: AsyncSqlRepository):
     assert q[0].name == 't2'
 
 
+@pytest.mark.asyncio
 async def test_can_filter(test_repo: AsyncSqlRepository):
     async with async_sess_factory() as s:
         q = await s.execute(
@@ -152,6 +155,7 @@ async def test_can_filter(test_repo: AsyncSqlRepository):
         assert [i.name for i in result] == ['t2', 't3']
 
 
+@pytest.mark.asyncio
 async def test_can_rollback(test_repo):
     async with async_sess_factory() as s:
         await s.execute(text("INSERT INTO test_table(name) VALUES ('t1')"))
@@ -169,6 +173,7 @@ async def test_can_rollback(test_repo):
         assert res[0].id == 1
 
 
+@pytest.mark.asyncio
 async def test_exists(test_repo):
     async with async_sess_factory() as s:
         q = await s.execute(
@@ -181,6 +186,7 @@ async def test_exists(test_repo):
         assert not await test_repo.exists(s, fake.TestModel, name='t100')
 
 
+@pytest.mark.asyncio
 async def test_patch(test_repo):
     async with async_sess_factory() as s:
         await s.execute(
