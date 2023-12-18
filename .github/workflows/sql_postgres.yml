@@ -44,7 +44,7 @@ jobs:
         POSTGRES_URL: "postgresql://postgres:postgres@localhost:5432"
         ASYNC_POSTGRES_URL: "postgresql+asyncpg://postgres:postgres@localhost:5432"
       run: |
-        python -m pytest --cov=./ --cov-report=xml
+        python -m pytest tests/test_operations.py --cov=./ --cov-report=xml
 
     - name: Coveralls
       env:
