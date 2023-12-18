@@ -3,7 +3,7 @@ import pytest
 from sqlalchemy import orm, create_engine, exc, text
 from sqlalchemy_utils import create_database, drop_database, database_exists
 
-from sql_repository import SqlRepository
+from data_persistence_repository import SqlRepository
 
 from tests import fake
 

@@ -9,8 +9,7 @@ from sqlalchemy.ext.asyncio import (
     async_sessionmaker,
     AsyncSession,
 )
-from sql_repository_async import AsyncSqlRepository
-from sql_repository import SqlRepository
+from data_persistence_repository import SqlRepository, AsyncSqlRepository
 
 from tests import fake
 
