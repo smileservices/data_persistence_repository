@@ -15,7 +15,7 @@ services:
     volumes:
       - ../:/project
     command: >
-      sh -c "python -m pytest tests"
+      sh -c "python -m pytest tests -p pytest_asyncio"
     networks:
       - repository-test-network
 
