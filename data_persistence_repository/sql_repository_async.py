@@ -12,7 +12,7 @@ from sqlalchemy import MetaData, select, delete, update
 from sqlalchemy.orm import registry
 from sqlalchemy.exc import NoResultFound
 
-from repository_interface import Repository
+from .repository_interface import Repository
 
 import logging
 

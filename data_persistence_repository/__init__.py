@@ -1,2 +1,2 @@
-from sql_repository import SqlRepository
-from sql_repository_async import AsyncSqlRepository
+from .sql_repository import SqlRepository
+from .sql_repository_async import AsyncSqlRepository

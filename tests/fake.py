@@ -1,7 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass, field
 from sqlalchemy import Table, Column, Integer, String, ForeignKey, orm
-from sql_repository import SqlRepository
+from data_persistence_repository.sql_repository import SqlRepository
 from typing import List, Optional
 
 
