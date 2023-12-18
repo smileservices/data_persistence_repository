@@ -11,7 +11,7 @@ from tests import fake
 
 # sqlite fails to raise IntegrityError
 # test_db_url = "sqlite:///:memory:"
-test_db_url = os.environ.get("POSTGRES_URL")
+test_db_url = os.environ.get("POSTGRES_URL") + "/test"
 db_engine = create_engine(test_db_url)
 
 

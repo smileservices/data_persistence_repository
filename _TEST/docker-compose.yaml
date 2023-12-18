@@ -1,0 +1,35 @@
+version: "3.7"
+
+# this is only for running tests
+
+services:
+
+  repository-test:
+    container_name: repository-test
+    image: repository-test-image
+    depends_on:
+      - postgresdb-test
+    environment:
+      - POSTGRES_URL=postgresql+psycopg2://postgres:postgres@postgresdb-test:5432
+      - ASYNC_POSTGRES_URL=postgresql+asyncpg://postgres:postgres@postgresdb-test:5432
+    volumes:
+      - ../:/project
+    command: >
+      sh -c "python -m pytest tests"
+    networks:
+      - repository-test-network
+
+  postgresdb-test:
+    image: postgres:latest
+    container_name: postgresdb-test
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - repository-test-network
+
+networks:
+  repository-test-network:
+      driver: bridge

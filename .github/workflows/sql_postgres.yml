@@ -41,8 +41,8 @@ jobs:
 
     - name: Run tests with coverage
       env:
-        POSTGRES_URL: "postgresql://postgres:postgres@localhost:5432/test_db"
-        ASYNC_POSTGRES_URL: "postgresql+asyncpg://postgres:postgres@localhost:5432/test_db"
+        POSTGRES_URL: "postgresql://postgres:postgres@localhost:5432"
+        ASYNC_POSTGRES_URL: "postgresql+asyncpg://postgres:postgres@localhost:5432"
       run: |
         python -m pytest --cov=./ --cov-report=xml
 

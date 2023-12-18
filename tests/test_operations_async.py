@@ -18,10 +18,10 @@ from tests import fake
 
 # sqlite fails to raise IntegrityError
 # test_db_url = "sqlite:///:memory:"
-test_db_url = os.environ.get("ASYNC_POSTGRES_URL")
+test_db_url = os.environ.get("ASYNC_POSTGRES_URL") + "/test"
 
 # to use with sqlalchemy_utils
-sync_test_db_url = os.environ.get("POSTGRES_URL")
+sync_test_db_url = os.environ.get("POSTGRES_URL") + "/test"
 
 db_engine = create_engine(sync_test_db_url)
 async_db_engine = create_async_engine(test_db_url)
