@@ -100,7 +100,8 @@ class AsyncSqlRepository(Repository):
         else:
             result = await session.execute(select(model))
 
-        return result.scalars().all()
+        # because we're usually using lazy="joined"
+        return result.unique().scalars().all()
 
     async def filter_by_list(self, session: AsyncSession, model, field: str, items_list: List) -> Iterable:
         """Asynchronously filter objects by a list of values in a field."""
