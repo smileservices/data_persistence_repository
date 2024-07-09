@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="data_persistence_repository",
-    version="0.2.1",
+    version="0.2.2",
     author="vladimir gorea",
     author_email="vladimir@smileservices.dev",
     description="A repository implementation for data persistence.",
@@ -12,18 +12,15 @@ setup(
     packages=find_packages(),
     install_requires=[
         "exceptiongroup==1.2.0",
-        "greenlet==3.0.2",
-        "iniconfig==2.0.0",
-        "packaging==23.2",
+        "greenlet>=3.0.0",
+        "iniconfig>=2.0.0",
         "pluggy",
-        "psycopg2==2.9.9",
-        "pytest==7.4.3",
-        "SQLAlchemy==2.0.23",
-        "SQLAlchemy-Utils==0.41.1",
-        "tomli==2.0.1",
-        "typing_extensions==4.9.0",
-        "pytest-asyncio==0.23.2",
-        "asyncpg==0.29.0"
+        "psycopg2>=2.9.9",
+        "SQLAlchemy>=2.0.0",
+        "SQLAlchemy-Utils>=0.41",
+        "tomli>=2.0.0",
+        "typing_extensions>=4.9.0",
+        "asyncpg>=0.29.0"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
