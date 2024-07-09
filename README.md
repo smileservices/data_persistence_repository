@@ -1,6 +1,6 @@
 # Data Persistence Repository
 
-[![PyPI](https://img.shields.io/pypi/v/data_persistence_repository)](https://pypi.org/project/data-persistence-repository-sql/)
+[![PyPI](https://img.shields.io/pypi/v/data_persistence_repository)](https://pypi.org/project/data-persistence-repository)
 [![Build Status](https://github.com/smileservices/data_persistence_repository/actions/workflows/sql_postgres.yml/badge.svg)](https://github.com/smileservices/data_persistence_repository/actions)
 [![Coverage Status](https://coveralls.io/repos/github/smileservices/data_persistence_repository/badge.svg?branch=main)](https://coveralls.io/github/smileservices/data_persistence_repository?branch=main)
 
