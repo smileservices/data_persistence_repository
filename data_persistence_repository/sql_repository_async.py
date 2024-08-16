@@ -46,17 +46,13 @@ class AsyncSqlRepository(Repository):
         """
         async with self._session_factory() as session:
             try:
-                yield session
+                async with session.begin():
+                    yield session
             except Exception as e:
-                await session.rollback() if rollback else None
+                if rollback:
+                    await session.rollback()
+                logger.error(f"Exception during session: {str(e)}")
                 raise
-            else:
-                try:
-                    await session.commit()
-                except Exception as ex:
-                    logger.error(f"SQL Commit Error (FINAL): {str(ex)}")
-                    await session.rollback() if rollback else None
-                    raise
 
     async def sync_schema(self):
         """Asynchronously create tables and run migrations."""
