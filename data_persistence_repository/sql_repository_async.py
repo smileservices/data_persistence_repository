@@ -32,7 +32,7 @@ class AsyncSqlRepository(Repository):
         if engine is None and url is None:
             raise ValueError("Either url or engine must be provided")
 
-        self._engine = engine if engine else create_async_engine(url, echo=True)
+        self._engine = engine if engine else create_async_engine(url, echo=True, pool_recycle=3600, pool_pre_ping=True)
         self._session_factory = async_sessionmaker(self._engine, expire_on_commit=False, class_=AsyncSession)
 
     async def get_session(self):
