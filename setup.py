@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="data_persistence_repository",
-    version="0.2.2",
+    version="0.2.3",
     author="vladimir gorea",
     author_email="vladimir@smileservices.dev",
     description="A repository implementation for data persistence.",
